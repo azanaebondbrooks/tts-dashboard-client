@@ -1,0 +1,72 @@
+<div class="dashboard-panel">
+  <!-- DASHBOARD PANEL START -->
+  <div class="dashboard-panel-description">
+    <div class="dashboard-icon">
+      <i class="material-icons dashboard-icon">
+        insert_chart
+      </i>
+    </div>
+    <div class="dashboard-title">
+      <h1>Product Form</h1>
+    </div>
+  </div>
+  <!-- DASHBOARD PANEL MIDDLE -->
+  <!-- STATS START -->
+  <div class="stats-box box2">
+    <div class="stats-box-header">
+      <div class="form-space">
+        <h3 class="stats-box-title">FORM</h3>
+      </div>
+    </div>
+    <div class="stats-description">
+      <table>
+        <tr>
+          <th>Product:</th>
+          <td><input type="text" formControlName="productName" style="width:225px; height:30px; border-radius:3px;"></td>
+        </tr>        
+        <tr>
+          <th>Category:</th>
+          <td>
+     <select class="form-control" style="width:230px; height:35px; border-radius:3px;">
+        <option *ngFor="let category of categories">{{category.categoryName}}</option>
+      </select>
+
+          </td>
+        </tr>
+        <tr>
+          <th>Full Price:</th>
+          <td><input type="text" formControlName="fullPrice" style="width:225px; height:30px; border-radius:3px;"></td>
+        </tr>
+        <tr>
+          <th>Sale Price:</th>
+          <td><input type="text" formControlName="salePrice" style="width:225px; height:30px; border-radius:3px;"></td>
+        </tr>
+
+
+        <tr>
+          <th>Availability:</th>
+          <td><input type="checkbox" formControlName="availability" style="transform : scale(1.9); border-radius:3px;"></td>
+        </tr>        
+        <tr>
+          <th>Supplier:</th>
+          <td>
+              <select class="form-control" style="width:230px; height:35px; border-radius:3px;">
+                  <option *ngFor="let supplier of suppliers">{{supplier.supplierName}}</option>
+                </select>
+          </td>
+        </tr>
+        <br/>
+        <tr>
+                      <button class="pure-material-button-contained" style="margin-left:315px;" routerLink="/products" routerLinkActive="active">
+              Submit</button>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+  <!-- STATS END -->
+
+
+  <!-- DASHBOARD PANEL END -->
+</div>

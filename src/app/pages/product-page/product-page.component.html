@@ -1,0 +1,68 @@
+<div class="dashboard-panel">
+  <!-- DASHBOARD PANEL START -->
+  <div class="dashboard-panel-description">
+    <div class="dashboard-icon">
+      <i class="material-icons dashboard-icon">
+        insert_chart
+      </i>
+    </div>
+    <div class="dashboard-title">
+      <h1>Products</h1>
+    </div>
+    <div class="dashboard-button">
+      <button class="pure-material-button-contained" routerLink="/add-product" routerLinkActive="active"><span>+
+          Add</span></button>
+    </div>
+  </div>
+  <!-- DASHBOARD PANEL MIDDLE -->
+  <!-- SEARCH BOX  -->
+
+
+  <!-- SEARCH BOX  -->
+  <!-- INVENTORY TABLE BOX START -->
+  <div class="inventory-box">
+    <div class="inventory-box-header">
+      <h3 class="inventory-box-title" *ngIf="products">PRODUCTS ({{products.length}})</h3>
+    </div>
+    <div class="stats-description">
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th style="width:5%;">#</th>
+            <th>Product Name</th>
+            <th>Category</th>
+            <th>Full Price</th>
+            <th>Sale Price</th>
+            <th>Availability</th>
+            <th>Supplier</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="content">
+          <tr *ngFor="let product of products | paginate:{itemsPerPage: 10 , currentPage: p}">
+            <td>{{product.id}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.category.categoryName}}</td>
+            <td>{{product.fullPrice}}</td>
+            <td>{{product.salePrice}}</td>
+            <td>{{product.availability}}</td>
+            <td>{{product.supplier.supplierName}}</td>
+            <td> <i class="material-icons" style="font-size:45px;">
+                settings_applications
+              </i>
+              <i class="material-icons" style="font-size:45px;">
+                delete
+              </i></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-footer">
+        <pagination-controls class="myPagination" (pageChange)="p= $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <!-- INVENTORY TABLE BOX END -->
+
+
+  <!-- DASHBOARD PANEL END -->
+</div>

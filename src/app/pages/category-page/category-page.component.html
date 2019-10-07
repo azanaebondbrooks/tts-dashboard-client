@@ -1,0 +1,60 @@
+<div class="dashboard-panel">
+  <!-- DASHBOARD PANEL START -->
+  <div class="dashboard-panel-description">
+    <div class="dashboard-icon">
+      <i class="material-icons dashboard-icon">
+        apps
+      </i>
+    </div>
+    <div class="dashboard-title">
+      <h1>Categories</h1>
+    </div>
+    <div class="dashboard-button">
+      <button class="pure-material-button-contained" routerLink="/add-category" routerLinkActive="active"><span>+
+          Add</span></button>
+    </div>
+  </div>
+  <!-- DASHBOARD PANEL MIDDLE -->
+  <!-- SEARCH BOX  -->
+
+
+  <!-- SEARCH BOX  -->
+  <!-- INVENTORY TABLE BOX START -->
+  <div class="inventory-box">
+    <div class="inventory-box-header">
+      <h3 class="inventory-box-title" *ngIf="categories">CATEGORIES ({{categories.length}})</h3>
+    </div>
+    <div class="stats-description">
+      <table cellspacing="0">
+        <thead>
+          <tr>
+            <th style="width:5%;">#</th>
+            <th>Category Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="content">
+          <tr *ngFor="let category of categories | paginate:{itemsPerPage: 10 , currentPage: p}">
+            <td>{{category.id}}</td>
+            <td>{{category.categoryName}}</td>
+            <td>
+              <i class="material-icons" style="font-size:45px;">
+                settings_applications
+              </i>
+              <i class="material-icons" style="font-size:45px;">
+                delete
+                </i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="page-footer">
+        <pagination-controls class="myPagination" (pageChange)="p= $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <!-- INVENTORY TABLE BOX END -->
+
+
+  <!-- DASHBOARD PANEL END -->
+</div>
